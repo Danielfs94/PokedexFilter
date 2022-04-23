@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import Context from '../context/Context'
+// trybe
 
 function PokeTable() {
   const { pokemonData } = useContext(Context);
