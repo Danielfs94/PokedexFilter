@@ -8,7 +8,7 @@ function Provider({ children }) {
   const [pokemonStats, setPokemonStats] = useState({
     filterStats: [
       {
-        statsPokemon: 'Health Points',
+        statsPokemon: 0,
         comparisonPokemonStats: 'maior que',
         statsValue: 0,
       }] });
@@ -31,23 +31,26 @@ function Provider({ children }) {
 
     const handleClickFilter  = () => {
       const { statsPokemon, comparisonPokemonStats, statsValue } = filterStats[0];
+      /* console.log('Valor do statsPokemon', +statsPokemon); */
       const filterArray = [...pokemonData];
       if (comparisonPokemonStats === 'maior que') {
         setPokemonData(filterArray
-          .filter((pokemon) => +pokemon[statsPokemon] > +statsValue));
+          .filter((pokemon) => +pokemon.stats[+statsPokemon].base_stat > +statsValue));
       }
       if (comparisonPokemonStats === 'menor que') {
         setPokemonData(filterArray
-          .filter((pokemon) => +pokemon[statsPokemon] < +statsValue));
+          .filter((pokemon) => +pokemon.stats[+statsPokemon].base_stat < +statsValue));
       }
       if (comparisonPokemonStats === 'igual a') {
-        setPokemonData(filterArray.filter((pokemon) => +pokemon[statsPokemon] === +statsValue));
+        setPokemonData(filterArray.filter((pokemon) => +pokemon.stats[+statsPokemon].base_stat === +statsValue));
       }
+      const teste = document.querySelector('select')
       document.querySelector('select')
-        .childNodes.forEach((option) => (option.innerHTML === statsPokemon ? option
+        .childNodes.filter((option) => (console.log(option.innerText) !== console.log(option.innerText) ? option
           .remove() : null));
+      /* document.querySelector('select')
+      .childNodes.forEach((option) => console.log(option.innerHTML, 'stats', statsPokemon.parentElement)); */
     }
-
 
   useEffect(() => {
     getPokemonFromApi();

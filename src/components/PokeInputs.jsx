@@ -39,12 +39,12 @@ function PokeInputs() {
             value={ statsPokemon }
             onChange={ handlePokemonStats }
           >
-            <option>Health Points</option>
-            <option>Attack</option>
-            <option>Defense</option>
-            <option>Special Attack</option>
-            <option>Special Defense</option>
-            <option>Speed</option>
+            <option value={0} name="Health Points">Health Points</option>
+            <option value={1} name="Attack">Attack</option>
+            <option value={2} name="Defense">Defense</option>
+            <option value={3} name="Special Attack">Special Attack</option>
+            <option value={4} name="Special Defense">Special Defense</option>
+            <option value={5} name="Speed">Speed</option>
           </select>
         </label>
 

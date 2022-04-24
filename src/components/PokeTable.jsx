@@ -4,6 +4,7 @@ import Context from '../context/Context'
 
 function PokeTable() {
   const { pokemonData, pokemon } = useContext(Context);
+  console.log(pokemonData);
   return (
     <div>
       <table>
