@@ -3,7 +3,7 @@ import Context from '../context/Context'
 // trybe
 
 function PokeTable() {
-  const { pokemonData } = useContext(Context);
+  const { pokemonData, pokemon } = useContext(Context);
   return (
     <div>
       <table>
@@ -27,7 +27,9 @@ function PokeTable() {
           </tr>
         </thead>
         <tbody>
-          { pokemonData.length > 0 ? pokemonData.map((poke) => (
+          { pokemonData.length > 0 ? pokemonData
+          .filter((text) => text.name.toLowerCase().includes(pokemon.toLowerCase()))
+          .map((poke) => (
             <tr key={poke.id}>
               <td>
               <img
