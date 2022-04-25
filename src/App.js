@@ -6,10 +6,12 @@ import PokeInput from './components/PokeInputs'
 
 function App() {
   return (
-    <Provider>
-      <PokeInput />
-      <PokeTable />
-    </Provider>
+    <div className="MainBoss">
+      <Provider>
+        <PokeInput />
+        <PokeTable />
+      </Provider>
+    </div>
   );
 }
 

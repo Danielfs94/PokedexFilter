@@ -1,0 +1,19 @@
+.TableInfo {
+  border: 2px solid black;
+  width: 100%;
+  background-Color:white
+}
+
+.Pokemons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.Pokemons td {
+  padding: 20px;
+}
+
+.Pokemons tbody {
+  background-color: rgb(0, 0, 0, 0.8);
+  color: white;
+}

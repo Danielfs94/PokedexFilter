@@ -26,12 +26,11 @@ function Provider({ children }) {
     const handlePokemonStats = (event) => {
       const { value, id } = event.target;
       setPokemonStats({ filterStats:
-        [{ ...filterStats[0], [id]: value }] });
+        [{ ...filterStats[0], [id]: value}] });
     };
 
-    const handleClickFilter  = () => {
+    const handleClickFilter = () => {
       const { statsPokemon, comparisonPokemonStats, statsValue } = filterStats[0];
-      /* console.log('Valor do statsPokemon', +statsPokemon); */
       const filterArray = [...pokemonData];
       if (comparisonPokemonStats === 'maior que') {
         setPokemonData(filterArray
@@ -44,12 +43,10 @@ function Provider({ children }) {
       if (comparisonPokemonStats === 'igual a') {
         setPokemonData(filterArray.filter((pokemon) => +pokemon.stats[+statsPokemon].base_stat === +statsValue));
       }
-      const teste = document.querySelector('select')
-      document.querySelector('select')
-        .childNodes.filter((option) => (console.log(option.innerText) !== console.log(option.innerText) ? option
-          .remove() : null));
-      /* document.querySelector('select')
-      .childNodes.forEach((option) => console.log(option.innerHTML, 'stats', statsPokemon.parentElement)); */
+      document.querySelector('select').childNodes.forEach((option) => (+option.value === +statsPokemon ? option.remove() : null))
+      const positionOne = document.querySelector('select')[0].value;
+      setPokemonStats({ filterStats: 
+        [{ statsPokemon: positionOne }] })
     }
 
   useEffect(() => {

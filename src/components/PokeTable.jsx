@@ -1,13 +1,12 @@
 import React, { useContext } from 'react';
 import Context from '../context/Context'
-// trybe
+import './PokeTable.css'
 
 function PokeTable() {
   const { pokemonData, pokemon } = useContext(Context);
-  console.log(pokemonData);
   return (
-    <div>
-      <table>
+    <div className="Main">
+      <table className="TableInfo">
         <thead>
           <tr>
             <th>Image</th>
@@ -27,6 +26,8 @@ function PokeTable() {
             <th>Secound Hability</th>
           </tr>
         </thead>
+      </table>
+      <table className="Pokemons">
         <tbody>
           { pokemonData.length > 0 ? pokemonData
           .filter((text) => text.name.toLowerCase().includes(pokemon.toLowerCase()))

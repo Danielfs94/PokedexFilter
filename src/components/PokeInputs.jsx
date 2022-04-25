@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import Context from '../context/Context';
+import './PokeInputs.css'
 
 function PokeInputs() {
   const { handleSearchPokemon,
@@ -13,8 +14,7 @@ function PokeInputs() {
   const { statsPokemon, comparisonPokemonStats, statsValue } = pokemonStats.filterStats[0];
 
   return (
-    <form>
-
+    <form className="StyleInput">
       <div>
         <label htmlFor="searchPokemon">
         Pokemon Name:
@@ -29,9 +29,7 @@ function PokeInputs() {
           />
         </label>
       </div>
-
       <div>
-
         <label htmlFor="statsPokemon">
           <select
             id="statsPokemon"
@@ -39,15 +37,16 @@ function PokeInputs() {
             value={ statsPokemon }
             onChange={ handlePokemonStats }
           >
-            <option value={0} name="Health Points">Health Points</option>
-            <option value={1} name="Attack">Attack</option>
-            <option value={2} name="Defense">Defense</option>
-            <option value={3} name="Special Attack">Special Attack</option>
-            <option value={4} name="Special Defense">Special Defense</option>
-            <option value={5} name="Speed">Speed</option>
+            <option value={0}>Health Points</option>
+            <option value={1}>Attack</option>
+            <option value={2}>Defense</option>
+            <option value={3}>Special Attack</option>
+            <option value={4}>Special Defense</option>
+            <option value={5}>Speed</option>
           </select>
         </label>
-
+      </div>
+      <div>
         <label htmlFor="comparisonPokemonStats">
           <select
             id="comparisonPokemonStats"
@@ -60,7 +59,8 @@ function PokeInputs() {
             <option>menor que</option>
           </select> 
         </label>
-
+      </div>
+      <div>
         <label htmlFor="statsValue">
           <input
             id="statsValue"
@@ -70,16 +70,16 @@ function PokeInputs() {
             onChange={ handlePokemonStats }
           />
         </label>
-
+      </div>
+      <div>
         <button
           type="button"
+          className="StyleButtonFiltrar"
           onClick={ handleClickFilter }
         >
             Filtrar
         </button>
-
       </div>
-
     </form>
   );
 }
